@@ -68,4 +68,5 @@ $ oc new-app rhdm72-trial-ephemeral
 
 http://ksoong.org/drools-examples/content/docs/rhdm.html#_1_project
 
-
+* 通过 http://myapp-rhdmcentr-rules-service.apps.example.com 访问在线设计界面。
+* 通过 http://myapp-kieserver-rules-service.apps.example.com/docs/ 访问 API 列表。
