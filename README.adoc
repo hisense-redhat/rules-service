@@ -7,7 +7,7 @@
 
 https://start.jbpm.org/ 
 
-== 复杂时间处理
+== 复杂事件处理
 
 http://ksoong.org/drools-examples/content/cep-fraud-detection-springboot/
 
@@ -64,9 +64,43 @@ $ oc new-app rhdm72-trial-ephemeral
 ...
 ----
 
-== 规则服务部署
+== 配送规则案例
 
 http://ksoong.org/drools-examples/content/docs/rhdm.html#_1_project
 
 * 通过 http://myapp-rhdmcentr-rules-service.apps.example.com 访问在线设计界面。
 * 通过 http://myapp-kieserver-rules-service.apps.example.com/docs/ 访问 API 列表。
+
+测试截图：
+
+image:img/rules-service-request.png[]
+
+结果返回：
+
+[source, json]
+----
+{
+  "type" : "SUCCESS",
+  "msg" : "Container logistics_1.0.0 successfully called.",
+  "result" : {
+    "execution-results" : {
+      "results" : [ {
+        "value" : {"com.myspace.logistics.Order":{
+  "merchant" : null,
+  "weight" : 68.64,
+  "expedited" : null,
+  "destination" : "仓库 A"
+}},
+        "key" : "order"
+      } ],
+      "facts" : [ {
+        "value" : {"org.drools.core.common.DefaultFactHandle":{
+  "external-form" : "0:1:2097530854:2097530854:2:DEFAULT:NON_TRAIT:com.myspace.logistics.Order"
+}},
+        "key" : "order"
+      } ]
+    }
+  }
+}
+----
+
